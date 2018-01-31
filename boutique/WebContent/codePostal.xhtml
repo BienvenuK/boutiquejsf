@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<f:view>
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputLabel value="cone postal" id="lblcp" style="color: #808040"></h:outputLabel>
+		<h:inputText id="cp" value="#{ville.cp}"></h:inputText>
+		<h:commandButton id="valider" value="Valider"  action= "#{ville.afficher}" ></h:commandButton>
+		<h:outputLabel id="resp" value="#{ville.name}"></h:outputLabel>
+	</h:form>
+	</h:body>
+</f:view>
+</html>
