@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<f:view>
+	<h:head>
+	</h:head>
+	<h:body>
+		<h:form>
+			<h:panelGrid id="panel">
+
+				<h:outputLabel id="nomLabel"> Nom : </h:outputLabel>
+				<h:inputText id="nom" value="#{inscriptionBeanController.user.nom}" 
+					validatorMessage="3 caractere " maxlength="8" required="true" >
+					<f:validateLength maximum="8" minimum="5"></f:validateLength></h:inputText>
+
+				<h:outputLabel id="prenomLabel"> Prenom : </h:outputLabel>
+				<h:inputText id="prenom" value="#{inscriptionBeanController.user.prenom}"></h:inputText>
+				
+				<h:outputLabel id="sexeLabel"> Sexe : </h:outputLabel>
+				<h:selectOneRadio value="#{inscriptionBeanController.user.sexe}">
+					<f:selectItem itemLabel="Masculin" itemValue="1">
+					</f:selectItem>
+					<f:selectItem itemLabel="Femin" itemValue="2">
+					</f:selectItem>
+				</h:selectOneRadio>
+
+				<h:outputLabel id="ageLabel"> Age : </h:outputLabel>
+				<h:selectOneMenu value="#{inscriptionBeanController.user.age}">
+					<f:selectItem itemLabel="-------------" itemValue=""></f:selectItem>
+					<f:selectItem itemLabel="12 ans " itemValue="12"></f:selectItem>
+					<f:selectItem itemLabel="13 ans" itemValue="13"></f:selectItem>
+					<f:selectItem itemLabel="14 ans" itemValue="14"></f:selectItem>
+					<f:selectItem itemLabel="15  ans " itemValue="15"></f:selectItem>
+					<f:selectItem itemLabel="17 ans" itemValue="17"></f:selectItem>
+					<f:selectItem itemLabel="30 ans" itemValue="30"></f:selectItem>
+				</h:selectOneMenu>
+
+				<h:outputLabel id="emailLabel"> Email : </h:outputLabel>
+				<h:inputText id="email" value="#{inscriptionBeanController.user.email}" required="true"
+					validatorMessage="l'email doit avoir 3 caractere ">
+				</h:inputText>
+
+				<h:outputLabel id="motPasseLabel"> Mot de passe  : </h:outputLabel>
+				<h:inputText id="motPasse"	value="#{inscriptionBeanController.user.motPasse}" required="true"></h:inputText>
+				
+
+				<h:commandButton id="valider" value="Valider"
+					action="#{inscriptionBeanController.inscription(inscriptionBeanController.user)}"></h:commandButton>
+					
+				<h:commandButton id="Annuler" value="Annuler" immediate="true"
+					action="#{inscriptionBeanController.annuler}"></h:commandButton>
+			</h:panelGrid>
+		</h:form>
+	</h:body>
+</f:view>
+</html>

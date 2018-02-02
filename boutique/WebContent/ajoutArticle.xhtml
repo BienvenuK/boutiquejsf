@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:view>
+<h:head>
+<h:outputScript library="javax.faces" name="jsf.js" target="head"></h:outputScript>
+</h:head>
+<h:body>
+	<h:form>
+	
+	<h:panelGrid id="panel">
+	
+	
+	
+	<h:outputText id="nameL" value="Name"> </h:outputText>
+	
+		<h:inputText id="name" value="#{item.name}"  >
+		<h:outputText id="nameErreur" value="#{item.nameErreur}"></h:outputText>
+		
+		<f:ajax event="keyup" render="nameErreur" listener="#{item.nameVerif}"></f:ajax></h:inputText>
+		
+			
+	
+		
+		<h:outputText id="priceL" value="Price"> Price  : </h:outputText>
+		
+		
+		<h:inputText id="price" value="#{item.price}">
+		<f:ajax event="blur" render="@this" listener="#{item.verifPrice}"></f:ajax></h:inputText>
+		<h:outputText id="priceErreur" value=""></h:outputText>
+		
+			<h:outputText id="descriptionL" value="Description"> Description  : </h:outputText>
+		<h:inputText id="description" value="#{item.description}"></h:inputText>
+		<h:outputText id="descriptionErreur"></h:outputText>
+		
+		
+		
+		<h:commandButton id="valider" value="Valider"  action="#{item.enregistrer}" ></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	</h:body>
+</f:view>
+</html>

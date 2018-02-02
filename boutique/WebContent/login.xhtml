@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<f:view>
+<h:head>
+</h:head>
+<h:body>
+	<h:form>
+	<h:panelGrid id="panel">
+	
+	<h:outputLabel id="information" value="#{loginBeanController.user.information}" binding="#{loginBeanController.user.information}">  : </h:outputLabel>
+	
+	<h:outputLabel id="emailLable" > Email : </h:outputLabel>
+		<h:inputText id="email" value="#{loginBeanController.user.email}" validatorMessage="l'email doit avoir 3 caractere " maxlength="8" >
+			<f:validateLength maximum="8" minimum="5"></f:validateLength></h:inputText>
+	
+		
+		<h:outputLabel id="motPasseLabel"> Mot de passe  : </h:outputLabel>
+		<h:inputText id="motPasse" value="#{loginBeanController.user.motPasse}"></h:inputText>
+		
+		<h:commandButton id="valider" value="Valider"  action="#{loginBeanController.login()}" ></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	</h:body>
+</f:view>
+</html>
